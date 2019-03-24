@@ -29,11 +29,11 @@ Vue.component('news-list',{
    template:`
    <div class="news">
             <h2>News</h2>
-                 <ul class="news__list">
-                    <li class="news__item">Girls gone WILD! What will we do?</li>
-                    <li class="news__item">Pizza please? Whats up with that?</li>
-                    <li v-for="article in articles"class="news__item">{{ article.title }}</li>>
-                </ul>
+            <div v-for="article in articles">
+                <h5>{{article.title}}</h5>
+                <img class="news-img" v-bind:src="article.urlToImage"/>
+                <p>{{article.description}}</p>
+            </div>
     </div>
    `,
    created: function() {
