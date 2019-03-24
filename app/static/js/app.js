@@ -24,6 +24,20 @@ Vue.component('app-header', {
     data: function() {}
 });
 
+
+Vue.component('news-list',{
+   template:`
+   <div class="news">
+            <h2>News</h2>
+                 <ul class="news__list">
+            <li class="news__item">Girls gone WILD! What will we do?</li>
+                    <li class="news__item">Pizza please? Whats up with that?</li>
+                    <li class="news__item">Hi I'm paul!!!</li>
+                </ul>
+    </div>
+   ` 
+});
+
 Vue.component('app-footer', {
     template: `
         <footer>
