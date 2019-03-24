@@ -30,12 +30,28 @@ Vue.component('news-list',{
    <div class="news">
             <h2>News</h2>
                  <ul class="news__list">
-            <li class="news__item">Girls gone WILD! What will we do?</li>
+                    <li class="news__item">Girls gone WILD! What will we do?</li>
                     <li class="news__item">Pizza please? Whats up with that?</li>
-                    <li class="news__item">Hi I'm paul!!!</li>
+                    <li v-for="article in articles"class="news__item">{{ article.title }}</li>>
                 </ul>
     </div>
-   ` 
+   `,
+   created: function() {
+       let self = this;
+       fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=6c72789f99644437b32b635786ef739e')
+         .then(function(response) {
+             return response.json();
+         })
+         .then(function(data) {
+             console.log(data);
+             self.articles = data.articles;
+         });
+   },
+   data: function() {
+       return {
+           articles: []
+       }
+   } 
 });
 
 Vue.component('app-footer', {
